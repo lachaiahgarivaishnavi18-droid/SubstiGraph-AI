@@ -1,0 +1,16 @@
+fastapi>=0.115,<1
+uvicorn>=0.32,<1
+sqlalchemy>=2.0,<3
+pydantic>=2.10,<3
+python-multipart>=0.0.20
+networkx>=3.4,<4
+numpy>=2.2
+pandas>=2.2
+scikit-learn>=1.6
+scipy>=1.15
+pulp>=3.0,<4
+neo4j>=5.27
+httpx>=0.28
+alembic>=1.14
+psycopg[binary]>=3.2
+pytest>=8

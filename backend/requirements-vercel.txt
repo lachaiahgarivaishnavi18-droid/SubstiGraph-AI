@@ -1,0 +1,13 @@
+# Runtime-only dependencies; optional local/ML tooling is not bundled.
+fastapi>=0.162,<1
+sqlalchemy>=2.0,<3
+pydantic>=2.10,<3
+python-multipart>=0.0.20
+networkx>=3.4,<4
+numpy>=2.2
+scikit-learn>=1.6
+scipy>=1.15
+pulp>=3.0,<4
+neo4j>=5.27
+httpx>=0.28
+psycopg[binary]>=3.2

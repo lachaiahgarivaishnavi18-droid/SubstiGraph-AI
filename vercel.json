@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "fastapi",
+  "buildCommand": "npm --prefix frontend install --no-audit --no-fund && npm --prefix frontend run build",
+  "functions": {
+    "app.py": {
+      "maxDuration": 60,
+      "excludeFiles": "{.venv/**,.runtime/**,.pnpm-store/**,frontend/node_modules/**,backend/tests/**,backend/migrations/**,**/*.db,**/__pycache__/**}"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: sqlite:////data/substigraph.db
+      GRAPH_BACKEND: networkx
+      SEMANTIC_MODE: tfidf
+    volumes: ["retail-data:/data"]
+  frontend:
+    build: ./frontend
+    ports: ["8080:80"]
+    depends_on: [backend]
+  postgres:
+    image: postgres:17-alpine
+    profiles: [production-storage]
+    environment:
+      POSTGRES_USER: substigraph
+      POSTGRES_DB: substigraph
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-development-only}
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+  neo4j:
+    image: neo4j:5-community
+    profiles: [production-storage]
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-local-graph-password}
+    ports: ["7474:7474", "7687:7687"]
+    volumes: ["graph-data:/data"]
+volumes:
+  retail-data:
+  postgres-data:
+  graph-data:
